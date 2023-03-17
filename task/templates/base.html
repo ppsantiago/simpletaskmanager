@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'taskapp/css/styles.css' %}">
+    <title>Simple TM®</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Simple TM®</a>
+        <input type="checkbox" id="side-menu" class="side-menu">
+        <label for="side-menu" class="hamb"><span class="hamb-line"></span></label>
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated%}
+                <li><a href="/task">Task</a></li>
+                <li><a href="/signout">Logout</a></li>
+                {% else %}
+                <li><a href="/signup">SingUp</a></li>
+                <li><a href="/signin">SingIn</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+    </main>
+
+    <footer>
+        <h2>footer</h2>
+    </footer>
+</body>
+
+
+</html>

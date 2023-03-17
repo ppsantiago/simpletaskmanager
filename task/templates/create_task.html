@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="task-create-container">
+
+
+        <div class="task-details-content">
+            <div class="title">
+                <h1>data</h1>
+            </div>
+            <div class="task-details">
+                <h2>No data yet.</h2>
+            </div>
+        </div>
+
+
+        <div class="task-create-content">
+            <div class="title">
+                <h1>Create a Task📃</h1>
+            </div>
+            <div class="task-create">
+                <form action="" method="POST">
+                    <div>
+                        {{message}}
+                    </div>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="task-btn">
+                        Create
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

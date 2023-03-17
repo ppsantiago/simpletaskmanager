@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="task-create-container">
+
+
+        <div class="task-details-content">
+            <div class="title">
+                <h1>data</h1>
+            </div>
+            <div class="task-update-details">
+                <label for="">Created at:</label>
+                <p>{{task.created}}</p>
+                <label for="">Author:</label>
+                <p>{{task.user}}</p>
+                <label for="">Complete at:</label>
+                {% if task.datecompleted %}
+                <p>{{task.datecompleted}}</p>
+                {% else %}
+                <p>No complete yet.</p>
+                    <form action="{% url 'task_complete' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="task-update-btn" onclick="return confirm('Are you sure to mark this task as completed?')">Complete</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div class="task-create-content">
+            <div class="title">
+                <h1>Task Details 🕵🏻‍♀️</h1>
+            </div>
+            <div class="task-create">
+                <h2>{{task.title}}</h2>
+                <form action="" method="POST">
+                    <div>
+                        {{message}}
+                    </div>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="task-update-btn" id="task-update-btn">
+                        Update
+                    </button>
+                </form>
+                <div>
+                    {% if task.datecompleted is none%}
+                    <div class="task-update-btns">
+                        <div>
+                            <a href="{% url 'tasks' %}">
+                                <button class="task-update-btn">Back</button>
+                            </a>
+                        </div>
+                        <div>
+                            <form action="{% url 'task_complete' task.id %}" method="POST">
+                                {% csrf_token %}
+                                <button class="task-update-btn" onclick="return confirm('Are you sure to mark this task as completed?')">Complete</button>
+                            </form>
+                        </div>
+                        {% else %}
+                        <div>
+                            <form action="{% url 'task_incomplete' task.id %}" method="POST">
+                                {% csrf_token %}
+                                <button class="task-update-btn" onclick="return confirm('Are you sure to mark this task as completed?')">Uncomplete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <form action="{% url 'task_delete' task.id %}" method="POST">
+                                {% csrf_token %}
+                                <button class="task-update-btn" onclick="return confirm('Are you sure you want to eliminate this task?')">Delete</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Register user</h1>
+{% if message %}
+<p>{{message}}</p>
+{% endif %}
+<form action="/signup/" method="POST" class="singinfrm">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div>
+        <button>
+            Signup
+        </button>
+    </div>
+</form>
+{% endblock %}
