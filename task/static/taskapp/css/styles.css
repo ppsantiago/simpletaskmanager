@@ -162,6 +162,7 @@ ul {
 /* -------General-------- */
 
 .title {
+    margin-top: 40px;
     text-align: center;
     font-size: 35px;
     border-style: solid;
@@ -184,7 +185,13 @@ ul {
 footer{
     background-color: var(--grey);
     text-align: center;
-    height: 150px;
+    height: 100px;
+}
+
+.footer-link-github{
+    color: var(--white) !important ;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /* -------Landing-------- */
@@ -196,7 +203,7 @@ footer{
 }
 
 .side1{
-    /* margin-top: 60px; */
+    margin-top: 0px;
 }
 .side2{
     margin-top: 30px;

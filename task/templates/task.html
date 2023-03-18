@@ -9,13 +9,14 @@
     <div class=task-create-btn>
         <a href="{% url 'create_task' %}">
             <button class="task-btn">
-                Add Task
+                Add Task🏁
             </button>
         </a>
     </div>
 
     <div class="task-container">
         <div class="task-important">
+            <div class="title"><h3>⚠️Important task's</h3></div>
             {% for t in tasks %}
                 {% if t.important %}
                     {% if not t.datecompleted %}
@@ -24,24 +25,24 @@
                 <hr class="divider">
                 <p class="task-desc">{{t.description}}</p>
                 <div class="task-date">
-                    <p class="task-info">Limit Date: 12/12/2023</p>
+                    <p class="task-info">⏱️ Limit Date: 12/12/2023</p>
                 </div>
                 <div class=task-btns>
                     <a href="{% url 'task_detail' t.id %}">
                         <button class="task-btn">
-                            Edit
+                            Edit ✏️
                         </button>
                     </a>
                     <form action="{% url 'task_complete' t.id %}" method="POST">
                         {% csrf_token %}<button class="task-btn" onclick="return confirm('Are you sure to mark this task as completed?')">
-                            Complete
+                            Complete ✅
                         </button>
                     </form>
 
                     <form action="{% url 'task_delete' t.id %}" method="POST">
                         {% csrf_token %}
                         <button class="task-btn" onclick="return confirm('Are you sure you want to eliminate this task?')">
-                            Delete
+                            Delete ♻️
                         </button>
                     </form>
                 </div>
@@ -54,8 +55,7 @@
         </div>
 
         <div class="task-incomplete">
-
-
+            <div class="title"><h3>🕛Incomplete task's</h3></div>
             {% for t in tasks %}
                 {% if not t.datecompleted %}
                 {% if not t.important %}
@@ -65,24 +65,24 @@
                 <hr class="divider">
                 <p class="task-desc">{{t.description}}</p>
                 <div class="task-date">
-                    <p class="task-info">Limit Date: 12/12/2023</p>
+                    <p class="task-info">⏱️ Limit Date: 12/12/2023</p>
                 </div>
                 <div class=task-btns>
                     <a href="{% url 'task_detail' t.id %}">
                         <button class="task-btn">
-                            Edit
+                            Edit ✏️
                         </button>
                     </a>
                     <form action="{% url 'task_complete' t.id %}" method="POST">
                         {% csrf_token %}<button class="task-btn" onclick="return confirm('Are you sure to mark this task as completed?')">
-                            Complete
+                            Complete ✅
                         </button>
                     </form>
 
                     <form action="{% url 'task_delete' t.id %}" method="POST">
                         {% csrf_token %}
                         <button class="task-btn" onclick="return confirm('Are you sure you want to eliminate this task?')">
-                            Delete
+                            Delete ♻️
                         </button>
                     </form>
                 </div>
@@ -96,6 +96,7 @@
         </div>
 
         <div class="task-complete">
+            <div class="title"><h3>✅Complete task's</h3></div>
             {% for t in tasks %}
             {% if t.datecompleted %}
 
@@ -104,24 +105,24 @@
                 <hr class="divider">
                 <p class="task-desc">{{t.description}}</p>
                 <div class="task-date">
-                    <p class="task-info">Limit Date: 12/12/2023</p>
+                    <p class="task-info">⏱️ Limit Date: 12/12/2023</p>
                 </div>
                 <div class=task-btns>
                     <a href="{% url 'task_detail' t.id %}">
                         <button class="task-btn">
-                            Edit
+                            Edit ✏️
                         </button>
                     </a>
                     <form action="{% url 'task_incomplete' t.id %}" method="POST">
                         {% csrf_token %}<button class="task-btn" onclick="return confirm('Are you sure to mark this task as incompleted?')">
-                            Incomplete
+                            Incomplete 🛑
                         </button>
                     </form>
 
                     <form action="{% url 'task_delete' t.id %}" method="POST">
                         {% csrf_token %}
                         <button class="task-btn" onclick="return confirm('Are you sure you want to eliminate this task?')">
-                            Delete
+                            Delete ♻️
                         </button>
                     </form>
                 </div>
