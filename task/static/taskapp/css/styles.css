@@ -187,6 +187,52 @@ footer{
     height: 150px;
 }
 
+/* -------Landing-------- */
+.landingContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 55vh;
+    gap: 30px;
+}
+
+.side1{
+    /* margin-top: 60px; */
+}
+.side2{
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.landing-head{
+    text-align: center;
+}
+
+.landing-conteiner-btn{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.landing-btn{
+    margin-top: 50px;
+    width: 50vh;
+    height: 10vh;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 600;
+    border-style: none;
+    border-radius: 5px;
+    background-color: var(--grey);
+    color: var(--white);
+    transition: background-color 0.7s ease;
+    transition: color 0.7s ease;
+}
+
+.landing-btn:hover{
+    background-color: var(--yellow-2);
+        box-shadow: 2px 2px 5px var(--grey-shadow);
+
+    color: var(--black);
+}
 /* -------Task-------- */
 
 .task-container {
@@ -240,9 +286,8 @@ footer{
     display: flex;
     gap: 20px;
     justify-content: center;
-
-        
 }
+
 .task-btn{
     padding: 10px;
     font-size: 15px;
@@ -258,9 +303,10 @@ footer{
     background-color: var(--black);
 }
 
-.task-btns-floatin {
- text-align: center;
+.task-create-btn{
+    text-align: center;
 }
+
 
 /* -------Create Task-------- */
 
